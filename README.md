@@ -1,5 +1,14 @@
 # grafananet-push
 
+## Configuring Hubitat
+
+First, the app must be installed.
+Under "Apps Code" click "New App", then "Import" and use the following URL:
+```
+https://raw.githubusercontent.com/jmh045000/grafananet-push/main/grafananet-push.groovy
+```
+(Alternvatively you can copy/paste the code yourself.)
+
 To use this plugin, you need to create an API key on grafana.net for your own account.
 The "Connect Data" for custom HTTP metrics helps set that up.
 
@@ -23,3 +32,9 @@ Fill these in on the hubitat App configuration as below, and save the settings.
 
 Make sure that at least a device is enabled.
 The optional preferences allow specifying behavior settings of the plugin, the defaults should be fine.
+
+## Using the metrics in Grafana
+
+The metrics are published as the attribute name reported by Hubitat.
+The full list of possible attributes can be seen in the [Hubitat Documentation](https://docs2.hubitat.com/developer/driver/capability-list), although not all attributes are supported by this app.
+The list of supported attributes are documented in the code [here](https://github.com/jmh045000/grafananet-push/blob/main/grafananet-push.groovy#L85) (the `encode` function in case the link is stale).
